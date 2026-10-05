@@ -1,23 +1,23 @@
 # Green Claims Guard
 
-A compliance tool for fashion retailers: it checks a sustainability or "green" claim in a product
-description against real UK and EU advertising law — in real time, before it's ever published.
+Green Claims Guard, compliance tool designed for fashion retailers. It checks a sustainability or "green" claim in a product
+description against real UK and EU advertising rules in real time, before the product is published.
 
 ## Why this exists
 
-Fashion is one of the most resource- and waste-intensive industries there is, and under the UK's
+Fashion sustainability claims are becoming more common and under the UK's
 DMCC Act 2024, the CMA can fine a retailer up to **10% of global turnover** for a misleading green
-claim. Today that compliance check is manual and spot-check-only. This replaces the spot-check with
-a systematic one — the rule set is built from real enforcement action already taken against ASOS,
-Boohoo, George at Asda, H&M, Ryanair, Oatly, Alpro and Innocent Drinks.
+claim. Today main compliance check are manual and spot-check-only. Green Claims Guard aims to make this process more consistent by checking claims while they're being prepared for publicaton.
+
+The rules used by the system are based on real advertising guidance and previous enforcement cases involving brands such as ASOS, Boohoo, George at Asda, H&M, Ryanair, Oatly, Alpro and Innocent Drinks. This assist the tool focus on the type of environmental claims that have caused problems rather than relying only on general AI responses.
 
 ## How it works
 
-Two people use it, and neither can do the other's job:
+Two people use it and neither can do the other's job:
 
 - **Copywriter** — writes the product copy. As they type, a free rule-engine pass flags known
   problem patterns instantly, and a slower AI pass catches nuanced wording the rules miss. The AI
-  is kept on a short leash: capped at medium severity, and a guard rejects any AI suggestion that
+  is kept on a short leash: capped at medium severity and a guard rejects any AI suggestion that
   invents a number not already in the text or the verified product facts.
 - **Senior Editor** — reviews the flagged findings and the suggested rewrite, then signs off.
   Nothing publishes without this step. Every action lands in an insert-only audit ledger.
