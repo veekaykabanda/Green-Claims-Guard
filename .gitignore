@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# .NET build output
+bin/
+obj/
+
+# Environment secrets
+.env
+
+# IDE / OS
+.vs/
+.vscode/
+*.user
+.DS_Store
+Thumbs.db
+
+# .NET dev settings
+appsettings.Development.json
+
+# Build / deploy artifacts
+build.zip
+publish.zip
+publish/
+publish-profile.xml
+
+# React build output and local tool files
+build/
+.claude/
+scheduled_tasks.lock
+*.bak
+
+# Academic submission material: personal to this project's assessment, kept out of the
+# artefact's own version control on purpose, not an accident.
+docs/

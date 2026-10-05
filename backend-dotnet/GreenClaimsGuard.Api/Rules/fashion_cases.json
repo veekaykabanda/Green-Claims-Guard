@@ -1,0 +1,83 @@
+[
+  {
+    "id": "case-cma-asos-2023",
+    "brand": "ASOS",
+    "year": 2023,
+    "body": "CMA",
+    "outcome": "Pledges secured: claims removed or improved",
+    "summary": "CMA found ~19% of products in ASOS's 'Responsible Edit' used vague or unsubstantiated sustainability labels. ASOS signed binding pledges to ensure all green claims are clear, accurate and substantiated.",
+    "ruleIds": ["FASH-12", "FASH-19", "CMA-1", "CMA-7"]
+  },
+  {
+    "id": "case-cma-boohoo-2023",
+    "brand": "Boohoo",
+    "year": 2023,
+    "body": "CMA",
+    "outcome": "Pledges secured: claims removed or improved",
+    "summary": "CMA investigation into Boohoo's 'Ready to be Responsible' range found sustainability labels were potentially misleading without substantiation. Boohoo committed to improving all green claims.",
+    "ruleIds": ["FASH-12", "FASH-19", "CMA-1", "CMA-7"]
+  },
+  {
+    "id": "case-cma-asda-2023",
+    "brand": "George at Asda",
+    "year": 2023,
+    "body": "CMA",
+    "outcome": "Pledges secured: claims removed or improved",
+    "summary": "CMA investigated George at Asda's 'George for Good' range. Broad green collection labels were found to risk misleading consumers. Asda pledged to substantiate all sustainability claims at product level.",
+    "ruleIds": ["FASH-12", "FASH-19", "CMA-1", "CMA-7"]
+  },
+  {
+    "id": "case-acm-hm-2022",
+    "brand": "H&M",
+    "year": 2022,
+    "body": "ACM (Netherlands)",
+    "outcome": "Investigated: 'Conscious' labels removed, monitoring and donation agreed",
+    "summary": "The Dutch Authority for Consumers and Markets (ACM) found H&M's 'Conscious' and 'Conscious Choice' labels were used without explaining what they meant or evidencing the claimed sustainability benefit. H&M agreed to remove the labels until compliant, donate EUR500,000 to independent sustainability organisations, and accept two years of ACM monitoring. Not a UK ASA ruling. Included here as the international precedent it is, not a UK one, since this project's rule citations otherwise cite only UK/EU sources.",
+    "ruleIds": ["FASH-12", "FASH-19", "ASA-1", "ASA-10", "CMA-1"]
+  },
+  {
+    "id": "case-asa-ryanair-2020",
+    "brand": "Ryanair",
+    "year": 2020,
+    "body": "ASA",
+    "outcome": "Ad banned",
+    "summary": "ASA banned Ryanair's claim of being Europe's 'lowest emissions airline' because it covered only CO2 and omitted other significant aircraft emissions. Established that carbon claims must cover full scope of emissions.",
+    "ruleIds": ["CMA-6", "CMA-12", "ASA-3", "FASH-9"]
+  },
+  {
+    "id": "case-asa-oatly-2021",
+    "brand": "Oatly",
+    "year": 2021,
+    "body": "ASA",
+    "outcome": "Ad banned",
+    "summary": "ASA ruled Oatly's carbon footprint claims were misleading because the methodology and scope were not clearly disclosed. Quantified environmental claims must include methodology.",
+    "ruleIds": ["CMA-6", "CMA-12", "CMA-16", "ASA-3", "CMA-3"]
+  },
+  {
+    "id": "case-asa-alpro-2021",
+    "brand": "Alpro",
+    "year": 2021,
+    "body": "ASA",
+    "outcome": "Ad banned",
+    "summary": "ASA found Alpro's 'Good for the Planet' claim was a broad lifecycle environmental claim that could not be substantiated for the product as a whole. General planet-friendly claims require full lifecycle evidence.",
+    "ruleIds": ["ASA-10", "CMA-5", "CMA-1", "FASH-13"]
+  },
+  {
+    "id": "case-asa-innocent-2022",
+    "brand": "Innocent Drinks",
+    "year": 2022,
+    "body": "ASA",
+    "outcome": "Ad banned",
+    "summary": "ASA ruled Innocent's campaign misled consumers by presenting a specific green initiative as evidence of overall environmental responsibility, while omitting the company's significant ongoing carbon footprint.",
+    "ruleIds": ["ASA-12", "CMA-7", "CMA-1", "CMA-20"]
+  },
+  {
+    "id": "case-ftc-bamboo-2013",
+    "brand": "Multiple retailers",
+    "year": 2013,
+    "body": "FTC",
+    "outcome": "Fines issued: bamboo claims prohibited",
+    "summary": "US Federal Trade Commission fined multiple retailers for marketing viscose/rayon as 'bamboo fabric'. Established that chemically processed bamboo-derived textiles must not be marketed as natural bamboo. Referenced in UK ASA and CMA guidance.",
+    "ruleIds": ["FASH-2", "CMA-1", "CMA-2"]
+  }
+]

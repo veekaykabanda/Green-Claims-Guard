@@ -1,0 +1,165 @@
+{
+  "source": "UK Fashion Green Claims – CMA/ASA Guidance (Fashion Industry Supplement)",
+  "rules": [
+    {
+      "id": "FASH-1",
+      "category": "organic_cotton_certification",
+      "patterns": ["organic cotton", "organic wool", "organic linen", "organic hemp"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Claims must be substantiated; ASA CAP Rule 3.7 (substantiation of claims)",
+      "explanation": "Organic fibre claims require third-party certification (e.g. GOTS or Soil Association). Uncertified use of 'organic' for textiles is likely to mislead consumers and may breach the CMA Green Claims Code."
+    },
+    {
+      "id": "FASH-2",
+      "category": "bamboo_fabric_misleading",
+      "patterns": ["bamboo fabric", "bamboo clothing", "bamboo fibre", "bamboo textile", "sustainable bamboo", "eco bamboo"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Claims must be truthful and accurate; ASA CAP Rule 3.1 (misleading advertising)",
+      "explanation": "Bamboo fabric is almost always chemically processed into viscose or rayon using harsh solvents. Describing it as 'sustainable' or 'eco' without disclosing the manufacturing process is likely to mislead. The FTC and ASA have both acted against bamboo fabric claims."
+    },
+    {
+      "id": "FASH-3",
+      "category": "recycled_polyester_specificity",
+      "patterns": ["recycled polyester", "recycled nylon", "rpet", "recycled plastic bottles", "ocean plastic"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Must not omit important information; ASA CAP Rule 11.1",
+      "explanation": "Recycled synthetic fibre claims must state the percentage of recycled content, the source of recycled material, and acknowledge that synthetic fabrics shed microplastics during washing. Omitting these material facts may mislead consumers."
+    },
+    {
+      "id": "FASH-4",
+      "category": "vegan_leather_environmental",
+      "patterns": ["vegan leather", "faux leather", "plant-based leather", "synthetic leather", "eco leather"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Full lifecycle must be considered; ASA CAP Rule 11.4",
+      "explanation": "Vegan or faux leather is often made from PVC or PU, which have significant environmental impacts across their lifecycle and do not biodegrade. Environmental benefit claims require full lifecycle evidence and must not imply the product is better for the planet without substantiation."
+    },
+    {
+      "id": "FASH-5",
+      "category": "sustainable_cashmere_wool",
+      "patterns": ["sustainable cashmere", "ethical cashmere", "responsible cashmere", "sustainable wool", "ethical wool", "responsible wool"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Claims must be substantiated; ASA CAP Rule 3.7 (substantiation of claims)",
+      "explanation": "Cashmere and wool sustainability claims require recognised certification such as Responsible Wool Standard (RWS) or Sustainable Fibre Alliance (SFA). Unverified use of 'sustainable' or 'ethical' for animal fibres is likely to mislead."
+    },
+    {
+      "id": "FASH-6",
+      "category": "tencel_lyocell_overclaim",
+      "patterns": ["tencel", "lyocell", "closed-loop", "closed loop production"],
+      "severity": "low",
+      "regulation": "CMA Green Claims Code – Claims must not exaggerate environmental credentials",
+      "explanation": "Tencel and lyocell are produced in a closed-loop solvent process, which is a genuine environmental benefit. However, claims must not overstate the overall environmental impact of the finished garment, which still involves dyeing, transport, and end-of-life disposal."
+    },
+    {
+      "id": "FASH-7",
+      "category": "ethical_supply_chain",
+      "patterns": ["ethically made", "ethically sourced", "ethical factory", "fair wages", "sweatshop-free", "ethical manufacturing"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Claims must be clear and not mislead; ASA CAP Rule 3.1 (misleading advertising) and Rule 3.7 (substantiation of claims)",
+      "explanation": "Ethical supply chain claims are social rather than environmental claims. Using them alongside green marketing without distinction may mislead. Any such claim must be supported by verifiable evidence such as third-party audits or recognised certifications (e.g. Fairtrade, SA8000)."
+    },
+    {
+      "id": "FASH-8",
+      "category": "slow_fashion_durability",
+      "patterns": ["slow fashion", "built to last", "timeless design", "buy less buy better", "quality over quantity"],
+      "severity": "low",
+      "regulation": "CMA Green Claims Code – Claims must be truthful and not mislead",
+      "explanation": "Durability and longevity claims used as environmental credentials must be substantiated. If the product is not demonstrably more durable than comparable items, such claims may mislead consumers about its environmental benefit."
+    },
+    {
+      "id": "FASH-9",
+      "category": "fashion_carbon_neutral",
+      "patterns": ["carbon neutral collection", "net zero fashion", "climate neutral garment", "carbon neutral clothing"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Must not omit important information; ASA CAP Rule 11.3",
+      "explanation": "Carbon neutral fashion claims must clearly state whether achieved through emission reduction or offsetting, specify the scope of emissions covered (raw materials, manufacturing, transport, use, end-of-life), and reference the standard used (e.g. PAS 2060). Offsetting-based claims must disclose this prominently."
+    },
+    {
+      "id": "FASH-10",
+      "category": "recycling_takeback_schemes",
+      "patterns": ["take-back scheme", "takeback programme", "garment recycling", "clothes recycling", "return your garment", "end of life return"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Must not omit important information; ASA CAP Rule 11.1",
+      "explanation": "Fashion take-back and garment recycling scheme claims must explain clearly what happens to returned items (resale, recycling, downcycling, landfill). Claims implying items are recycled into new garments are likely to mislead if garments are downcycled or sent to landfill."
+    },
+    {
+      "id": "FASH-11",
+      "category": "microplastic_omission",
+      "patterns": ["recycled synthetic", "recycled fabric", "recycled fleece", "recycled material garment"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Must not omit important information",
+      "explanation": "Garments made from recycled synthetic fibres shed microplastics during washing. Marketing that promotes recycled synthetic content without acknowledging microplastic shedding may omit material information relevant to consumers' environmental assessment."
+    },
+    {
+      "id": "FASH-12",
+      "category": "sustainable_fashion_vague",
+      "patterns": ["sustainable fashion", "sustainable clothing", "sustainable collection", "sustainable range", "eco fashion", "green fashion", "conscious fashion"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Claims must not be vague; CMA investigation into ASOS, Boohoo and George at Asda (opened July 2022, undertakings published March 2024)",
+      "explanation": "Broad 'sustainable fashion' or 'conscious collection' labels are the exact type of vague claim the CMA investigated in 2022–23 against ASOS, Boohoo, and George at Asda. Such claims must be accompanied by specific, verifiable information about what makes the product or range sustainable."
+    },
+    {
+      "id": "FASH-13",
+      "category": "natural_fibre_environmental",
+      "patterns": ["natural fibres", "natural materials", "100% natural", "pure natural"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Full lifecycle must be considered; ASA CAP Rule 11.4",
+      "explanation": "'Natural' does not mean environmentally friendly. Natural fibres such as conventional cotton are resource-intensive and may involve pesticides. Claims implying environmental benefit from natural origin must consider the full lifecycle including growing, processing, dyeing, and disposal."
+    },
+    {
+      "id": "FASH-14",
+      "category": "gots_certification_required",
+      "patterns": ["gots certified", "gots standard", "global organic textile"],
+      "severity": "low",
+      "regulation": "CMA Green Claims Code – Certifications must be genuine and explained",
+      "explanation": "GOTS (Global Organic Textile Standard) is a valid and recognised certification for organic textiles. Ensure the specific product or range holds current GOTS certification and that the certificate scope is not overstated (e.g. covering only one stage of production)."
+    },
+    {
+      "id": "FASH-15",
+      "category": "waterless_dyeing_claims",
+      "patterns": ["waterless dyeing", "water-free dyeing", "reduced water dyeing", "water saving production"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Reduction claims must specify baseline and percentage",
+      "explanation": "Water reduction claims in dyeing or production must state the baseline water use, percentage reduction, and methodology. Claims of 'waterless' dyeing must be technically accurate: most processes described as waterless still use some water."
+    },
+    {
+      "id": "FASH-16",
+      "category": "upcycled_deadstock",
+      "patterns": ["upcycled", "deadstock fabric", "deadstock material", "surplus fabric", "reclaimed fabric"],
+      "severity": "low",
+      "regulation": "CMA Green Claims Code – Claims must be truthful and not exaggerate",
+      "explanation": "Upcycled and deadstock fabric claims are generally more defensible than virgin material claims but must still be accurate. The percentage of upcycled or deadstock content should be stated, and the claim must not imply the entire garment is upcycled if only a component is."
+    },
+    {
+      "id": "FASH-17",
+      "category": "fashion_packaging_claims",
+      "patterns": ["plastic-free packaging", "recycled packaging", "biodegradable mailer", "compostable bag", "sustainable packaging"],
+      "severity": "medium",
+      "regulation": "CMA Green Claims Code – Must distinguish packaging from product claims; ASA CAP Rule 11.1",
+      "explanation": "Sustainable or plastic-free packaging claims apply only to the packaging, not the garment. The claim must be specific, accurate, and not create the impression the product itself is environmentally superior. Compostable mailers must state if industrial composting is required."
+    },
+    {
+      "id": "FASH-18",
+      "category": "local_uk_made_carbon",
+      "patterns": ["made in uk", "made locally", "locally made", "uk manufactured", "british made"],
+      "severity": "low",
+      "regulation": "CMA Green Claims Code – Claims must not mislead about environmental benefit",
+      "explanation": "UK or local manufacture does not automatically confer environmental benefit. Fabrics may still be imported from overseas, so if 'made in UK' is presented as an environmental credential, the carbon footprint of the full supply chain must be considered."
+    },
+    {
+      "id": "FASH-19",
+      "category": "conscious_collection_label",
+      "patterns": ["conscious collection", "conscious edit", "responsible edit", "green edit", "eco edit", "planet collection"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Vague claims mislead; CMA investigation into ASOS, Boohoo and George at Asda (opened July 2022, undertakings published March 2024)",
+      "explanation": "Collection-level green labels such as 'Conscious Collection' or 'Eco Edit' are precisely the labelling practice the CMA found potentially misleading in its 2022–23 investigation. Each product in such a range must individually meet the claimed standard, not just be loosely grouped under a green label."
+    },
+    {
+      "id": "FASH-20",
+      "category": "fashion_future_commitments",
+      "patterns": ["net zero by 2030", "carbon neutral by 2040", "fully sustainable by", "100% sustainable by", "zero waste by"],
+      "severity": "high",
+      "regulation": "CMA Green Claims Code – Future commitments must be backed by clear plans",
+      "explanation": "Fashion brand commitments to future sustainability targets must be backed by a credible, published, time-bound plan with interim milestones. Aspirational targets presented as commitments without a delivery strategy are likely to mislead consumers under the CMA Green Claims Code."
+    }
+  ]
+}

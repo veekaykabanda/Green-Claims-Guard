@@ -1,0 +1,115 @@
+name: CI
+
+# On every push to main and on every pull request: run the backend tests against a real SQL Server, run the
+# frontend tests and a production build, then check both Docker images still build. On a push to main only,
+# also push both images to ghcr.io so Azure has something real to pull.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    services:
+      sql:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: "Y"
+          MSSQL_SA_PASSWORD: "Ci_Passw0rd_2026!"
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'Ci_Passw0rd_2026!' -Q 'SELECT 1'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
+          --health-start-period 20s
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Test
+        # Each test run makes its own throwaway database on this server, made by the app's own migrations.
+        run: dotnet test backend-dotnet/GreenClaimsGuard.slnx --configuration Release
+        env:
+          TEST_SQL_SERVER: "Server=localhost,1433;User Id=sa;Password=Ci_Passw0rd_2026!"
+
+  frontend:
+    name: Frontend tests and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Test
+        run: npm test -- --watchAll=false
+        env:
+          CI: "true"
+      - name: Build
+        # With CI set, a build with any warning fails.
+        run: npm run build
+        env:
+          CI: "true"
+
+  images:
+    name: Docker images build
+    runs-on: ubuntu-latest
+    needs: [backend, frontend]
+    # A pull request from a fork does not get write access to packages, and its images are unverified anyway.
+    # Only a push to main (already tested by the two jobs above) gets pushed to the registry.
+    if: github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+      - name: Work out the image names
+        # ghcr.io requires lowercase; the repository name may not be.
+        run: echo "REPO=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+      - name: API image
+        run: |
+          docker build -t ghcr.io/$REPO-api:latest -t ghcr.io/$REPO-api:${{ github.sha }} backend-dotnet
+          docker push ghcr.io/$REPO-api:latest
+          docker push ghcr.io/$REPO-api:${{ github.sha }}
+      - name: Web image
+        # These four are public addresses/identifiers, not secrets (see docs/deployment-plan.md), set as
+        # repository variables once the production API and Auth0 details exist. Until then they fall back
+        # to the same placeholders the build previously used, so this step keeps working either way.
+        run: |
+          docker build \
+            --build-arg REACT_APP_API_URL="${{ vars.REACT_APP_API_URL || 'http://localhost:8080' }}" \
+            --build-arg REACT_APP_AUTH0_DOMAIN="${{ vars.REACT_APP_AUTH0_DOMAIN || 'ci.example.auth0.com' }}" \
+            --build-arg REACT_APP_AUTH0_CLIENT_ID="${{ vars.REACT_APP_AUTH0_CLIENT_ID || 'ci' }}" \
+            --build-arg REACT_APP_AUTH0_AUDIENCE="${{ vars.REACT_APP_AUTH0_AUDIENCE || 'https://greenclaims-api' }}" \
+            -t ghcr.io/$REPO-web:latest -t ghcr.io/$REPO-web:${{ github.sha }} .
+          docker push ghcr.io/$REPO-web:latest
+          docker push ghcr.io/$REPO-web:${{ github.sha }}
+      - name: Tell Azure to pull the new images
+        # GHCR has no built-in "notify on push" webhook the way Azure Container Registry does, so CI calls
+        # each App Service's own continuous-deployment hook directly (enabled via `az webapp deployment
+        # container config --enable-cd true`, which is where these two URLs came from). continue-on-error:
+        # a failed nudge here doesn't mean the images are bad — they're already pushed and tested above —
+        # it just means the two-command fallback in docs/deployment-plan.md (`az webapp restart`) is needed.
+        # Single quotes, not double: the URL's username is the literal string "$app-name" (Azure's own
+        # convention, not a shell variable) - double quotes let bash expand it as one, silently chopping
+        # the username off the URL and turning the real credentials into a 401.
+        continue-on-error: true
+        run: |
+          curl -fsS -X POST '${{ secrets.AZURE_API_CD_WEBHOOK }}'
+          curl -fsS -X POST '${{ secrets.AZURE_UI_CD_WEBHOOK }}'

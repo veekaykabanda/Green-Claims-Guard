@@ -1,0 +1,13 @@
+# The web app image only needs package files, public/ and src/. Keep everything else out of the build context.
+node_modules
+build
+backend-dotnet
+docs
+.git
+.github
+_ui-review
+_new-ui-parked
+# Never bake secrets or local settings into an image.
+.env
+.env.*
+*.log

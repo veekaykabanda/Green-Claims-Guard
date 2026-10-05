@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+# Never bake secrets or test projects into an image.
+**/.env
+**/.env.*
+GreenClaimsGuard.Api.Tests/

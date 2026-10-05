@@ -1,0 +1,54 @@
+{
+  "source": "EU Empowering Consumers for the Green Transition (ECGT) Directive (EU) 2024/825, amending the Unfair Commercial Practices Directive 2005/29/EC",
+  "jurisdiction": "EU",
+  "rules": [
+    {
+      "id": "ECGT-1",
+      "category": "generic_environmental_claim",
+      "patterns": ["eco-friendly", "environmentally friendly", "environmentally conscious", "planet-friendly", "planet friendly", "earth friendly", "climate friendly", "nature friendly", "gentle on the environment", "kind to the planet", "good for the planet", "eco-conscious", "ecological", "sustainable", "green", "eco", "biodegradable", "conscious"],
+      "severity": "high",
+      "regulation": "Directive 2005/29/EC Annex I point 4a (inserted by Directive (EU) 2024/825; applies from 27 September 2026): generic environmental claims are banned unless the trader can demonstrate recognised excellent environmental performance",
+      "explanation": "A generic environmental claim (such as 'eco-friendly', 'green' or 'sustainable') is prohibited in the EU unless the trader can demonstrate recognised excellent environmental performance relevant to the claim, for example an EU Ecolabel. Otherwise say exactly what is environmentally better, in the same sentence. Note: 'green' also matches the colour, so check the sentence."
+    },
+    {
+      "id": "ECGT-2",
+      "category": "offsetting_neutrality_claim",
+      "patterns": ["climate neutral", "carbon neutral", "co2 neutral", "net zero", "carbon negative", "climate positive", "carbon positive", "zero carbon", "reduced climate impact", "offset"],
+      "severity": "high",
+      "regulation": "Directive 2005/29/EC Annex I point 4c (inserted by Directive (EU) 2024/825; applies from 27 September 2026): claims that a product has a neutral, reduced or positive greenhouse gas impact based on offsetting are banned",
+      "explanation": "In the EU you may not claim that a product is climate or carbon neutral, or has a reduced or positive climate impact, on the basis of offsetting emissions. Describe only actual reductions in the product's own emissions, with the figures and how they were measured."
+    },
+    {
+      "id": "ECGT-3",
+      "category": "sustainability_label_not_certified",
+      "patterns": ["conscious collection", "conscious choice", "responsible edit", "eco edit", "green edit", "sustainable edit", "planet promise", "eco badge", "sustainability badge", "eco score", "green score", "green label", "eco label"],
+      "severity": "high",
+      "regulation": "Directive 2005/29/EC Annex I point 2a (inserted by Directive (EU) 2024/825; applies from 27 September 2026): a sustainability label must be based on a certification scheme or established by a public authority",
+      "explanation": "A brand's own sustainability label, badge or collection name is banned unless it is based on a third-party certification scheme or set up by a public authority. Remove the label, or replace it with the specific certified fact."
+    },
+    {
+      "id": "ECGT-4",
+      "category": "whole_product_claim",
+      "patterns": ["100% sustainable", "100% green", "100% eco", "fully sustainable", "completely sustainable", "totally green", "completely eco-friendly", "entire range", "whole collection", "all our products"],
+      "severity": "high",
+      "regulation": "Directive 2005/29/EC Annex I point 4b (inserted by Directive (EU) 2024/825; applies from 27 September 2026): a claim about the whole product or business when it concerns only one aspect",
+      "explanation": "Claiming that an entire product, range or business has an environmental quality when it is true only of one aspect (one material, one process) is banned. Name the one aspect the claim is true for."
+    },
+    {
+      "id": "ECGT-5",
+      "category": "future_environmental_performance",
+      "patterns": ["net zero by", "carbon neutral by", "climate neutral by", "by 2030", "by 2035", "by 2040", "by 2050", "our goal", "aiming to", "planning to", "we will be", "on our way to"],
+      "severity": "medium",
+      "regulation": "Directive 2005/29/EC Article 6(2)(d) (as amended by Directive (EU) 2024/825; applies from 27 September 2026): future environmental performance claims need a detailed, realistic implementation plan verified by an independent expert",
+      "explanation": "A claim about future environmental performance is misleading unless it is backed by clear, objective, publicly available and verifiable commitments in a detailed implementation plan that an independent third-party expert monitors. Keep the claim only if you can evidence that plan."
+    },
+    {
+      "id": "ECGT-6",
+      "category": "legal_requirement_as_feature",
+      "patterns": ["reach compliant", "meets all legal", "meets eu regulations", "complies with the law", "legally compliant", "compliant with regulations"],
+      "severity": "high",
+      "regulation": "Directive 2005/29/EC Annex I point 10a (inserted by Directive (EU) 2024/825; applies from 27 September 2026): presenting requirements imposed by law as a distinctive feature of the offer",
+      "explanation": "Presenting something every competitor must do by law as if it were a special feature of your product is banned. Remove it, or state something that goes beyond the legal minimum."
+    }
+  ]
+}

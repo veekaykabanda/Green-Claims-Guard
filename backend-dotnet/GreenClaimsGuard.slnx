@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GreenClaimsGuard.Api.Tests/GreenClaimsGuard.Api.Tests.csproj" />
+  <Project Path="GreenClaimsGuard.Api/GreenClaimsGuard.Api.csproj" />
+</Solution>

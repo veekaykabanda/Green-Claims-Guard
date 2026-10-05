@@ -1,0 +1,55 @@
+# The whole app on one machine, with one command:
+#   1. copy .env.example to .env and fill it in
+#   2. docker compose up --build
+# The web app is then at http://localhost:8081 and the API at http://localhost:8080.
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD:?Set SQL_SA_PASSWORD in .env (8+ characters with upper, lower, a digit and a symbol)}
+    volumes:
+      - dbdata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q \"SELECT 1\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  api:
+    build: ./backend-dotnet
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # The API creates and migrates its own database on start.
+      SQL_SERVER_CONNECTION: "Server=db;Database=FashionGreenClaimsGuard;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True;"
+      AUTH0_DOMAIN: ${AUTH0_DOMAIN:?Set AUTH0_DOMAIN in .env}
+      AUTH0_AUDIENCE: ${AUTH0_AUDIENCE:-https://greenclaims-api}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      SINGLE_SENIOR_EDITOR: ${SINGLE_SENIOR_EDITOR:-}
+      # The API only accepts browser requests from this address. The web container is reached at this
+      # host address (not the "web" service name), because that is the origin the browser actually sends.
+      ALLOWED_WEB_ORIGINS: http://localhost:${WEB_PORT:-8081}
+    ports:
+      - "${API_PORT:-8080}:8080"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      args:
+        REACT_APP_API_URL: http://localhost:${API_PORT:-8080}
+        REACT_APP_AUTH0_DOMAIN: ${AUTH0_DOMAIN}
+        REACT_APP_AUTH0_CLIENT_ID: ${AUTH0_CLIENT_ID:?Set AUTH0_CLIENT_ID in .env}
+        REACT_APP_AUTH0_AUDIENCE: ${AUTH0_AUDIENCE:-https://greenclaims-api}
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-8081}:80"
+    restart: unless-stopped
+
+volumes:
+  dbdata:
